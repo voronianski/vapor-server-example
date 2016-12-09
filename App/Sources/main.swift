@@ -7,7 +7,7 @@ drop.get("hello") { req in
 }
 
 drop.get("hash", String.self) { req, name in
-  return drop.hash.make(name)
+  return try drop.hash.make(name)
 }
 
 drop.run()
