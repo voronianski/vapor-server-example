@@ -1,0 +1,9 @@
+#extend("base")
+
+#export("head") {
+  <title>Vapor Leaf Page</title>
+}
+
+#export("body") {
+  <h1>Hello, #(name) at Vapor Leaf Page</h1>
+}

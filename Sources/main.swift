@@ -33,4 +33,14 @@ drop.get("data", Int.self) { req, int in
   ])
 }
 
+drop.get("html") { _ in
+  return try drop.view.make("index.html")
+}
+
+drop.get("leaf") { req in
+  return try drop.view.make("page", [
+    "name": req.query?["name"] ?? "Stranger"
+  ])
+}
+
 drop.run()
