@@ -1,8 +1,11 @@
 import Vapor
+import VaporMongo
 
 let drop = Droplet()
 
-drop.get("hello") { req in
+try drop.addProvider(VaporMongo.Provider.self)
+
+drop.get("hello") { _ in
   return "Hello, Vapor!"
 }
 
@@ -19,6 +22,14 @@ drop.get("json") { req in
       "name": "Vapor",
       "lang": "Swifty"
     ]
+  ])
+}
+
+drop.get("data", Int.self) { req, int in
+  return try JSON(node: [
+    "int": int,
+    "hello": req.data["hello"]?.string,
+    "name": req.query?["name"] ?? "no name"
   ])
 }
 

@@ -1,0 +1,7 @@
+{
+  "user": "",
+  "password": "",
+  "database": "vaportestdb",
+  "port": "27017",
+  "host": "localhost"
+}
