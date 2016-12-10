@@ -46,6 +46,8 @@ Vagrant.configure("2") do |config|
     # https://swift.org/download/#releases
     # https://vapor.github.io/documentation/getting-started/install-swift-3-ubuntu.html
     sudo su - ubuntu -c 'curl -sL swift.vapor.sh/ubuntu | bash'
+
+    # TBD: overlook and vapor toolbox installation needed...
   SHELL
 
   # Create a forwarded port mapping which allows access to a specific port

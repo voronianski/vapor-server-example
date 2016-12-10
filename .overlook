@@ -1,0 +1,14 @@
+{
+  "ignore" : [
+    ".git",
+    ".gitignore",
+    ".overlook"
+  ],
+  "env" : {},
+  "execute" : "swift build",
+  "directories" : [
+    "Sources",
+    "Config"
+  ],
+  "verbose" : true
+}
