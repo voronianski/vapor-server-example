@@ -4,6 +4,7 @@ import VaporMongo
 let drop = Droplet()
 
 try drop.addProvider(VaporMongo.Provider.self)
+drop.preparations = [Post.self]
 
 drop.get("hello") { _ in
   return "Hello, Vapor!"
@@ -22,6 +23,12 @@ drop.get("json") { req in
       "name": "Vapor",
       "lang": "Swifty"
     ]
+  ])
+}
+
+drop.post("json") { req in
+  return try JSON(node: [
+    "data": req.json
   ])
 }
 

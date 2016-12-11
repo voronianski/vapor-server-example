@@ -5,6 +5,9 @@ final class Post: Model {
   var id: Node?
   var text: String
 
+  // used by fluent internally
+  var exists: Bool = false
+
   init(text: String) {
     self.text = text
   }
@@ -16,12 +19,16 @@ final class Post: Model {
 
   func makeNode(context: Context) throws -> Node {
     return try Node(node: [
+      "id": id,
       "text": text
     ])
   }
 
   static func prepare(_ database: Database) throws {
-    //
+    try database.create("posts") { users in
+      users.id()
+      users.string("text", optional: true)
+    }
   }
 
   static func revert(_ database: Database) throws {
