@@ -43,7 +43,7 @@ drop.get("leaf") { req in
   ])
 }
 
-let posts = PostController(droplet: drop)
+let posts = PostController()
 drop.resource("posts", posts)
 
 drop.run()
