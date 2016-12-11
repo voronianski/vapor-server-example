@@ -10,11 +10,13 @@ final class Post: Model {
   }
 
   init(node: Node, in context: Context) throws {
+    id = nil
     text = try node.extract("text")
   }
 
   func makeNode(context: Context) throws -> Node {
     return try Node(node: [
+      "id": id,
       "text": text
     ])
   }
