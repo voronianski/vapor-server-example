@@ -6,14 +6,17 @@ let drop = Droplet()
 try drop.addProvider(VaporMongo.Provider.self)
 drop.preparations.append(Post.self)
 
+// Plain text
 drop.get("hello") { _ in
   return "Hello, Vapor!"
 }
 
+// Hashing the param
 drop.get("hash", String.self) { req, name in
   return try drop.hash.make(name)
 }
 
+// Responding JSON on GET
 drop.get("json") { req in
   return try JSON(node: [
     "foo": "bar",
@@ -26,12 +29,14 @@ drop.get("json") { req in
   ])
 }
 
+// Accessing JSON on POST
 drop.post("json") { req in
   return try JSON(node: [
     "data": req.json
   ])
 }
 
+// Request params and query
 drop.get("data", Int.self) { req, int in
   return try JSON(node: [
     "int": int,
@@ -40,16 +45,19 @@ drop.get("data", Int.self) { req, int in
   ])
 }
 
+// Plain html
 drop.get("html") { _ in
   return try drop.view.make("index.html")
 }
 
+// Templating with leaf
 drop.get("leaf") { req in
   return try drop.view.make("page", [
     "name": req.query?["name"] ?? "Stranger"
   ])
 }
 
+// Fluent models and controller example
 let posts = PostController()
 drop.resource("posts", posts)
 

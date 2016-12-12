@@ -3,7 +3,7 @@ import HTTP
 
 final class PostController {
   func index(_ request: Request) throws -> ResponseRepresentable {
-    return try JSON(node: ["index": "yes"])
+    return try Post.all().makeNode().converted(to: JSON.self)
   }
 
   func create(_ request: Request) throws -> ResponseRepresentable {
@@ -22,16 +22,24 @@ final class PostController {
     return post
   }
 
-  func replace(_ request: Request, _ post: Post) throws -> ResponseRepresentable {
-    return try JSON(node: ["replace": "yes"])
-  }
-
   func update(_ request: Request, _ post: Post) throws -> ResponseRepresentable {
-    return try JSON(node: ["update": "yes"])
+    guard let json = request.json else {
+      throw Abort.badRequest
+    }
+
+    let updates = try Post(node: json)
+    var post = post
+
+    post.merge(updates)
+    try post.save()
+
+    return post
   }
 
   func delete(_ request: Request, _ post: Post) throws -> ResponseRepresentable {
-    return try JSON(node: ["delete": "yes"])
+    try post.delete()
+
+    return JSON([:])
   }
 }
 
@@ -41,7 +49,6 @@ extension PostController: ResourceRepresentable {
       index: index,
       store: create,
       show: show,
-      replace: replace,
       modify: update,
       destroy: delete
     )
