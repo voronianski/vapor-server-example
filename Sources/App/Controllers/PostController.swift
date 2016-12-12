@@ -41,6 +41,12 @@ final class PostController {
 
     return JSON([:])
   }
+
+  func clear(_ request: Request) throws -> ResponseRepresentable {
+    try Post.query().delete()
+
+    return JSON([])
+  }
 }
 
 extension PostController: ResourceRepresentable {
@@ -50,7 +56,8 @@ extension PostController: ResourceRepresentable {
       store: create,
       show: show,
       modify: update,
-      destroy: delete
+      destroy: delete,
+      clear: clear
     )
   }
 }

@@ -25,7 +25,7 @@ final class Post: Model {
   }
 
   func merge(_ updates: Post) {
-    text = updates.text ?? text
+    text = updates.text
   }
 
   static func prepare(_ database: Database) throws {
