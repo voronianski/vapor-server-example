@@ -18,10 +18,14 @@ final class Post: Model {
   }
 
   func makeNode(context: Context) throws -> Node {
-    return try Node(node: [
-      "id": id,
-      "text": text
-    ])
+    var data = [String: Node]()
+    data["text"] = Node(text)
+
+    if id != nil {
+      data["id"] = id
+    }
+
+    return try Node(node: data)
   }
 
   static func prepare(_ database: Database) throws {
