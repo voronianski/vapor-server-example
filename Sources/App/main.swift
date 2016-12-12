@@ -4,7 +4,7 @@ import VaporMongo
 let drop = Droplet()
 
 try drop.addProvider(VaporMongo.Provider.self)
-drop.preparations = [Post.self]
+drop.preparations.append(Post.self)
 
 drop.get("hello") { _ in
   return "Hello, Vapor!"

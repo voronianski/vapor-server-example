@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
 
     # libpython2.7-dev - https://bugs.swift.org/browse/SR-2743
     # libcurl3 - http://stackoverflow.com/a/39813691/2117550
-    sudo apt-get -yq install clang libicu-dev git wget libpython2.7-dev libcurl3
+    sudo apt-get -yq install clang libicu-dev git wget make libpython2.7-dev libcurl3
 
     # https://docs.mongodb.com/v3.2/tutorial/install-mongodb-on-ubuntu/
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927

@@ -25,10 +25,7 @@ final class Post: Model {
   }
 
   static func prepare(_ database: Database) throws {
-    try database.create("posts") { users in
-      users.id()
-      users.string("text", optional: true)
-    }
+    //
   }
 
   static func revert(_ database: Database) throws {

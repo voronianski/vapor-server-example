@@ -12,7 +12,9 @@ final class PostController {
     }
 
     var post = try Post(node: json)
+
     try post.save()
+
     return post
   }
 
