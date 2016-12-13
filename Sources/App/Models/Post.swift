@@ -2,8 +2,8 @@ import Vapor
 import Fluent
 
 final class Post: Model {
-  var id: Node?
-  var _id: Node?
+  var id: Node? // required to conform Fluent protocol
+  var _id: Node? // required to store correct value in db
   var text: String
 
   // used by fluent internally
@@ -21,7 +21,7 @@ final class Post: Model {
 
   func makeNode(context: Context) throws -> Node {
     return try Node(node: [
-      "_id": id,
+      "_id": id, // we don't want to double values in response
       "text": text
     ])
   }
