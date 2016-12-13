@@ -1,5 +1,6 @@
 import Vapor
 import VaporMongo
+import HTTP
 
 let drop = Droplet()
 
@@ -61,6 +62,10 @@ drop.get("leaf") { req in
   return try drop.view.make("page", [
     "name": req.query?["name"] ?? "Stranger"
   ])
+}
+
+drop.get("/") { req in
+  return Response(redirect: "/html")
 }
 
 // Proxy data requests
