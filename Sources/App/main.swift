@@ -57,13 +57,13 @@ drop.get("leaf") { req in
   ])
 }
 
-// Fluent models and controller example
-let posts = PostController()
-drop.resource("posts", posts)
-
 // Proxy data requests
 drop.get("image") { req in
   return try drop.client.get("http://example.vapor.codes/images/vapor-logo.png")
 }
+
+// Fluent models and controller example
+let posts = PostController()
+drop.resource("posts", posts)
 
 drop.run()
