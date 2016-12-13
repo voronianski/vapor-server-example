@@ -61,4 +61,9 @@ drop.get("leaf") { req in
 let posts = PostController()
 drop.resource("posts", posts)
 
+// Proxy data requests
+drop.get("image") { req in
+  return try drop.client.get("http://example.vapor.codes/images/vapor-logo.png")
+}
+
 drop.run()
