@@ -3,8 +3,14 @@ import VaporMongo
 
 let drop = Droplet()
 
+// add mongodb provider
 try drop.addProvider(VaporMongo.Provider.self)
+
+// add Fluent model preparations
 drop.preparations.append(Post.self)
+
+// add middleware to all endpoints
+drop.middleware.append(CorsMiddleware())
 
 // Plain text
 drop.get("hello") { _ in

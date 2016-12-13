@@ -31,7 +31,7 @@ final class Post: Model {
   }
 
   static func prepare(_ database: Database) throws {
-    //
+    // implementation is not needed in case of mongodb
   }
 
   static func revert(_ database: Database) throws {
