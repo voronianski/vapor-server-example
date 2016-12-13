@@ -3,6 +3,7 @@ import Fluent
 
 final class Post: Model {
   var id: Node?
+  var _id: Node?
   var text: String
 
   // used by fluent internally
@@ -14,12 +15,13 @@ final class Post: Model {
 
   init(node: Node, in context: Context) throws {
     id = try node.extract("id")
+    _id = try node.extract("_id")
     text = try node.extract("text")
   }
 
   func makeNode(context: Context) throws -> Node {
     return try Node(node: [
-      "id": id,
+      "_id": id,
       "text": text
     ])
   }
