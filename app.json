@@ -1,0 +1,11 @@
+{
+  "name": "Vapor Server Example",
+  "description": "Simple HTTP server hosted on Heroku powered by Swift and Vapor Framework",
+  "repository": "https://github.com/voronianski/vapor-server-example",
+  "keywords": ["swift", "vapor", "buildpack", "example", "server"],
+  "buildpacks": [
+    {
+      "url": "https://github.com/vapor/heroku-buildpack"
+    }
+  ]
+}
