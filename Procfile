@@ -1,1 +1,1 @@
-web: App --env=production --workdir="./"
+web: App --env=production --workdir="./" --port=$PORT
