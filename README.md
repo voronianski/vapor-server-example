@@ -1,5 +1,7 @@
 # vapor-server-example
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 > Examples of server-side [Swift](https://swift.org) powered by [Vapor](https://vapor.codes).
 
 ## What's inside?
