@@ -2,9 +2,40 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Vapor HTML Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>Vapor Server Example</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.2.4/milligram.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"/>
+    <link rel="stylesheet" href="/css/app.css" type="text/css" />
+    <link rel="icon" href="/assets/favicon.png" />
+    <link rel="apple-touch-icon" href="/assets/favicon.png" />
   </head>
   <body>
-    <h1>Vapor HTML Page</h1>
+    <div class="container">
+      <img src="/image" width="300" />
+      <p class="description">Examples of server-side Swift powered by Vapor Framework:</p>
+      <div class="clearfix">
+        <ul class="float-left">
+          <li><a href="/hello" target="_blank">Plain Text</a></li>
+          <li><a href="/json" target="_blank">JSON Response</a></li>
+          <li><a href="/data/100?hello=hi&name=Joe" target="_blank">Request Data</a></li>
+          <li><a href="/leaf?name=Joe" target="_blank">Leaf Templates</a></li>
+        </ul>
+        <ul class="float-right">
+          <li><a href="https://github.com/voronianski/vapor-server-example/blob/master/Sources/App/Middleware/CorsMiddleware.swift" target="_blank">CORS Middleware</a></li>
+          <li><a href="/posts" target="_blank">CRUD API</a> (via <a href="https://github.com/voronianski/vapor-server-example/blob/master/Sources/App/Models/Post.swift" target="_blank">Fluent models</a>)</li>
+          <li><a href="/hash/joe" target="_blank">Hashing</a></li>
+          <li>and more...</li>
+        </ul>
+      </div>
+      <div class="ctas">
+        <a href="https://github.com/voronianski/vapor-server-example" class="button">Check on Github</a>
+      </div>
+    </div>
   </body>
 </html>

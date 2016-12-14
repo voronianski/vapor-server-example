@@ -20,7 +20,9 @@ drop.get("hello") { _ in
 
 // Hashing the param
 drop.get("hash", String.self) { req, name in
-  return try drop.hash.make(name)
+  let hash = try drop.hash.make(name)
+
+  return try JSON(node: [name: hash])
 }
 
 // Responding JSON on GET
@@ -53,7 +55,7 @@ drop.get("data", Int.self) { req, int in
 }
 
 // Plain html
-drop.get("html") { _ in
+drop.get("/") { _ in
   return try drop.view.make("index.html")
 }
 
@@ -64,8 +66,9 @@ drop.get("leaf") { req in
   ])
 }
 
-drop.get("/") { req in
-  return Response(redirect: "/html")
+// Redirect request
+drop.get("html") { req in
+  return Response(redirect: "/")
 }
 
 // Proxy data requests

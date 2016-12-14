@@ -1,0 +1,37 @@
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  padding: 0 20px;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: -25px;
+}
+.container ul {
+  text-align: left;
+}
+.cta {
+  margin-top: 15px;
+}
+
+@media (max-height: 500px) {
+  .container {
+    top: 30px;
+    transform: translateY(0%);
+    margin-top: 0;
+  }
+}
